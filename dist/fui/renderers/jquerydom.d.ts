@@ -1,0 +1,31 @@
+import { IWidget } from "../widget";
+import { Renderer } from "./base-renderer";
+import { JQueryApp } from "../apps/jqueryapp";
+import { InputTextProps } from "../widgets/solewidgets/inputtext";
+import { BootstrapIcon, IBoxDecoration } from "../design";
+import { ContainerProps, CreateDropdownProps, CreateDropdownSelectProps, IButton, IChildren, Line } from "../widgets";
+import { PositionedProps } from "../widgets/containerwidgets/positioned";
+import { IForm } from "../services";
+import { SpinnerProps } from "../widgets/solewidgets/spinner";
+export declare class JQueryDOM extends Renderer {
+    createSpinner(props: SpinnerProps): JQuery<HTMLElement>;
+    createDropdown({ triggerElement, contentElement }: CreateDropdownProps): JQuery<HTMLElement>;
+    createApiForm(props: IForm, onEnter: (data: any) => void): JQuery<HTMLElement>;
+    triggerFocus(element: JQuery<HTMLElement>): void;
+    hide(element: JQuery<HTMLElement>): void;
+    show(element: JQuery<HTMLElement>): void;
+    createListContainer(props: IChildren, direction: "row" | "column"): JQuery<HTMLElement>;
+    createPositionedContainer(props: PositionedProps): JQuery<HTMLElement>;
+    createButton({ color, decoration, onClick, size, type, weight }: IButton): JQuery<HTMLElement>;
+    createContainer(props: ContainerProps): JQuery<HTMLElement>;
+    createLoadingRect(decoration: IBoxDecoration): JQuery<HTMLElement>;
+    createLine({ padding, color, width }: Line): JQuery<HTMLElement>;
+    createIcon(icon: BootstrapIcon, spin: boolean): JQuery<HTMLElement>;
+    constructor();
+    defaultWidget(): JQuery<HTMLElement>;
+    createImage(url: string, width: string, height: string): JQuery<HTMLElement>;
+    append(thisWidget: IWidget | any, toWidget: IWidget | JQueryApp | null): JQuery<string | HTMLElement>;
+    createText(text: string, style: any): JQuery<HTMLElement>;
+    createInput({ type, value, name, onInput, style, decoration, }: InputTextProps): JQuery<HTMLElement>;
+    createDropdownSelect<T>({ initialValue, onChange, options }: CreateDropdownSelectProps<T>): JQuery<HTMLElement>;
+}
