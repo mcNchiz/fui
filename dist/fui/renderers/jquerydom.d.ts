@@ -14,7 +14,7 @@ export declare class JQueryDOM extends Renderer {
     triggerFocus(element: JQuery<HTMLElement>): void;
     hide(element: JQuery<HTMLElement>): void;
     show(element: JQuery<HTMLElement>): void;
-    createListContainer(props: IChildren, direction: "row" | "column"): JQuery<HTMLElement>;
+    createListContainer({ alignItems, gap, height, justifyContent, width }: IChildren, direction: "row" | "column"): JQuery<HTMLElement>;
     createPositionedContainer(props: PositionedProps): JQuery<HTMLElement>;
     createButton({ color, decoration, onClick, size, type, weight }: IButton): JQuery<HTMLElement>;
     createContainer(props: ContainerProps): JQuery<HTMLElement>;

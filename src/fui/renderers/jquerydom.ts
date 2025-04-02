@@ -80,14 +80,15 @@ export class JQueryDOM extends Renderer{
   show(element: JQuery<HTMLElement>): void {
     element.show()
   }
-  createListContainer(props: IChildren, direction: "row"|"column"): JQuery<HTMLElement> {
+  createListContainer({alignItems="start", gap=0, height="auto", justifyContent="start", width="100%"}: IChildren, direction: "row"|"column"): JQuery<HTMLElement> {
     return this.defaultWidget().css({
       "display": "flex",
-      "align-items": props.alignItems,
-      "justify-content": props.justifyContent,
+      "align-items": alignItems,
+      "justify-content": justifyContent,
       "flex-direction": direction,
-      "width": "100%",
-      "gap": props.gap+"px",
+      "width": width,
+      "height": height,
+      "gap": gap+"px",
     } as Record<string, any>);
   }
   createPositionedContainer(props: PositionedProps): JQuery<HTMLElement> {

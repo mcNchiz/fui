@@ -71,14 +71,15 @@ class JQueryDOM extends base_renderer_1.Renderer {
     show(element) {
         element.show();
     }
-    createListContainer(props, direction) {
+    createListContainer({ alignItems = "start", gap = 0, height = "auto", justifyContent = "start", width = "100%" }, direction) {
         return this.defaultWidget().css({
             "display": "flex",
-            "align-items": props.alignItems,
-            "justify-content": props.justifyContent,
+            "align-items": alignItems,
+            "justify-content": justifyContent,
             "flex-direction": direction,
-            "width": "100%",
-            "gap": props.gap + "px",
+            "width": width,
+            "height": height,
+            "gap": gap + "px",
         });
     }
     createPositionedContainer(props) {
