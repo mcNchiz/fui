@@ -119,11 +119,11 @@ export class JQueryDOM extends Renderer{
     if(props.alignment!=null){
       widget.css({"display":"flex", "width": "auto", "align-items":"center", "justify-content":props.alignment})
     }
-    if(props.decoration && props.decoration.width!=null){
-      widget.css({"widget": props.decoration.width})
-    }else{
-      widget.css({"width": "100%"})
-    }
+    widget.css({
+      width: props.decoration?.width ?? props.width ?? "100%",
+      height: props.decoration?.height ?? props.height
+    } as Record<string, any>);
+    
     if(props.bounds){
       widget.css(Bounds.toCSS(props.bounds))
     }

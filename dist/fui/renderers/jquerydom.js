@@ -97,6 +97,7 @@ class JQueryDOM extends base_renderer_1.Renderer {
         return $button;
     }
     createContainer(props) {
+        var _a, _b, _c, _d, _e;
         let widget = this.defaultWidget().css(props.decoration ? design_1.BoxDecoration.toCSS(props.decoration) : design_1.BoxDecoration.emptyCSS());
         if (props.tag) {
             widget.attr("id", props.tag);
@@ -110,12 +111,10 @@ class JQueryDOM extends base_renderer_1.Renderer {
         if (props.alignment != null) {
             widget.css({ "display": "flex", "width": "auto", "align-items": "center", "justify-content": props.alignment });
         }
-        if (props.decoration && props.decoration.width != null) {
-            widget.css({ "widget": props.decoration.width });
-        }
-        else {
-            widget.css({ "width": "100%" });
-        }
+        widget.css({
+            width: (_c = (_b = (_a = props.decoration) === null || _a === void 0 ? void 0 : _a.width) !== null && _b !== void 0 ? _b : props.width) !== null && _c !== void 0 ? _c : "100%",
+            height: (_e = (_d = props.decoration) === null || _d === void 0 ? void 0 : _d.height) !== null && _e !== void 0 ? _e : props.height
+        });
         if (props.bounds) {
             widget.css(bounds_1.Bounds.toCSS(props.bounds));
         }

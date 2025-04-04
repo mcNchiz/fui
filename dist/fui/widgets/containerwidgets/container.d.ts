@@ -6,6 +6,8 @@ export type IContainerAlignment = "start" | "center" | "end";
 export interface ContainerProps {
     tag?: string;
     bounds?: Bounds;
+    width?: string;
+    height?: string;
     className?: string;
     alignment?: IContainerAlignment;
     decoration?: IBoxDecoration;
@@ -13,11 +15,15 @@ export interface ContainerProps {
 export declare class Container extends ContainerWidget implements ContainerProps {
     tag?: string | undefined;
     bounds?: Bounds;
+    width?: string;
+    height?: string;
     alignment?: IContainerAlignment;
     className?: string | undefined;
     decoration?: IBoxDecoration;
-    constructor({ child, tag, className, alignment, decoration, bounds }?: {
+    constructor({ child, tag, className, width, height, alignment, decoration, bounds }?: {
         child?: IWidget | null;
+        width?: string;
+        height?: string;
         tag?: string;
         className?: string;
         alignment?: IContainerAlignment;
