@@ -60,6 +60,9 @@ export class BoxDecoration implements IBoxDecoration{
     if(decoration.padding){
       cssStyle['padding'] = EdgeInsets.toCSS(decoration.padding)
     }
+    if(decoration.position){
+      cssStyle['position'] = decoration.position
+    }
     if(decoration.backgroundColor){
       cssStyle['background-color'] = decoration.backgroundColor
     }

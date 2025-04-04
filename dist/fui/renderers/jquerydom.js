@@ -108,6 +108,9 @@ class JQueryDOM extends base_renderer_1.Renderer {
         if (props.className) {
             widget.addClass(props.className);
         }
+        if (props.coords) {
+            widget.css(design_1.Coordinates.toCSS(props.coords));
+        }
         if (props.alignment != null) {
             widget.css({ "display": "flex", "width": "auto", "align-items": "center", "justify-content": props.alignment });
         }

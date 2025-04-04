@@ -1,4 +1,4 @@
-import { IBoxDecoration } from "../../design";
+import { Coordinates, IBoxDecoration, IPosition } from "../../design";
 import { Bounds } from "../../utils";
 import { IWidget } from "../../widget";
 import { ContainerWidget } from "../containerwidget";
@@ -8,6 +8,7 @@ export interface ContainerProps{
   tag?: string
   bounds?: Bounds
   width?: string
+  coords?: IPosition
   height?: string
   className?: string
   alignment?: IContainerAlignment
@@ -17,15 +18,17 @@ export class Container extends ContainerWidget implements ContainerProps{
   tag?: string | undefined
   bounds?: Bounds
   width?: string
+  coords?: IPosition
   height?: string
   alignment?: IContainerAlignment
   className?: string | undefined
   decoration?: IBoxDecoration
 
-  constructor({child=null, tag, className, width="100%", height, alignment, decoration, bounds}:{child?: IWidget|null, width?: string, height?: string, tag?: string, className?: string, alignment?: IContainerAlignment, decoration?: IBoxDecoration, bounds?: Bounds}={}){
+  constructor({child=null, tag, className, width="100%", coords, height, alignment, decoration, bounds}:{child?: IWidget|null, width?: string, height?: string, tag?: string, className?: string, alignment?: IContainerAlignment, coords?: IPosition, decoration?: IBoxDecoration, bounds?: Bounds}={}){
     super({child})
     this.tag = tag
     this.height = height
+    this.coords = coords
     this.width = width
     this.bounds = bounds
     this.className = className

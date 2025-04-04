@@ -10,7 +10,7 @@ export class Line extends SoleWidget{
   color: string | Colors;
   width: number;
   padding: IPadding;
-  constructor(props: ILine){
+  constructor(props: ILine={}){
     super({});
     this.color = props.color??Colors.gray300;
     this.padding = props.padding??EdgeInsets.zero;

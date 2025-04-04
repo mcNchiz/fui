@@ -9,6 +9,6 @@ export declare class Line extends SoleWidget {
     color: string | Colors;
     width: number;
     padding: IPadding;
-    constructor(props: ILine);
+    constructor(props?: ILine);
     widget(): JQuery<HTMLElement>;
 }

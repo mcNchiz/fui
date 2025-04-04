@@ -1,12 +1,15 @@
 import { Widget } from "../widget";
 
+export abstract class FUIModalContent{
+  abstract getContentSelector():string
+}
 export class JQueryApp{
   body: any
   appContainer: JQuery<HTMLElement|string>
   component: JQuery<HTMLElement|string>
 
-  constructor({appContainer, body}:{appContainer: string, body: any}){
-    this.component = $(appContainer);
+  constructor({appContainer, body}:{appContainer: string|FUIModalContent, body: any}){
+    this.component = $(appContainer instanceof FUIModalContent?appContainer.getContentSelector():appContainer);
     this.appContainer = this.component;
     this.appContainer.addClass("flexcolnogap");
     this.body = body;

@@ -14,15 +14,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./advancewidget"), exports);
-__exportStar(require("./solewidget"), exports);
-__exportStar(require("./containerwidget"), exports);
-__exportStar(require("./builderwidget"), exports);
-__exportStar(require("./multiwidget"), exports);
-__exportStar(require("./modifiedwidget"), exports);
-__exportStar(require("./solewidgets"), exports);
-__exportStar(require("./containerwidgets"), exports);
-__exportStar(require("./builderwidgets"), exports);
-__exportStar(require("./multiwidgets"), exports);
-__exportStar(require("./layoutwidgets"), exports);
-__exportStar(require("./notwidgets"), exports);
+__exportStar(require("./modal"), exports);
+__exportStar(require("./showDialog"), exports);

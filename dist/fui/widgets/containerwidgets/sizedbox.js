@@ -4,7 +4,7 @@ exports.SizedBox = void 0;
 const design_1 = require("../../design");
 const containerwidget_1 = require("../containerwidget");
 class SizedBox extends containerwidget_1.ContainerWidget {
-    constructor({ child = null, width = undefined, height = undefined, unit = "px" }) {
+    constructor({ child = null, width = undefined, height = undefined, unit = "px" } = { unit: "px" }) {
         super({ child: child !== null && child !== void 0 ? child : null });
         this.width = width;
         this.height = height;

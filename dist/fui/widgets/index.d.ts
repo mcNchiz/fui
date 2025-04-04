@@ -9,3 +9,4 @@ export * from './containerwidgets';
 export * from './builderwidgets';
 export * from './multiwidgets';
 export * from './layoutwidgets';
+export * from './notwidgets';

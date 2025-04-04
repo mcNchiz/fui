@@ -36,6 +36,9 @@ class BoxDecoration {
         if (decoration.padding) {
             cssStyle['padding'] = spacing_1.EdgeInsets.toCSS(decoration.padding);
         }
+        if (decoration.position) {
+            cssStyle['position'] = decoration.position;
+        }
         if (decoration.backgroundColor) {
             cssStyle['background-color'] = decoration.backgroundColor;
         }

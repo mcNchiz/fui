@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JQueryApp = void 0;
+exports.JQueryApp = exports.FUIModalContent = void 0;
 const widget_1 = require("../widget");
+class FUIModalContent {
+}
+exports.FUIModalContent = FUIModalContent;
 class JQueryApp {
     constructor({ appContainer, body }) {
-        this.component = $(appContainer);
+        this.component = $(appContainer instanceof FUIModalContent ? appContainer.getContentSelector() : appContainer);
         this.appContainer = this.component;
         this.appContainer.addClass("flexcolnogap");
         this.body = body;

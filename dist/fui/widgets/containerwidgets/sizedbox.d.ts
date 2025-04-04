@@ -10,6 +10,6 @@ export declare class SizedBox extends ContainerWidget implements ISizedBox {
     width?: number;
     height?: number;
     unit: string;
-    constructor({ child, width, height, unit }: ISizedBox);
+    constructor({ child, width, height, unit }?: ISizedBox);
     widget(): JQuery<HTMLElement>;
 }

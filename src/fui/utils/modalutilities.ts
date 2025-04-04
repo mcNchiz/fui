@@ -4,7 +4,7 @@ export function showModal(jquerySelector: string, clear=true){
     $(`${jquerySelector} .fuimodal-content`).empty()
   }
 }
-export function hideModal(jquerySelector: JQuery<HTMLElement>){
+export function hideModal(jquerySelector: string){
   $(jquerySelector).hide();
   $(jquerySelector+" #modal-content").empty();
 }

@@ -13,7 +13,7 @@ export class SizedBox extends ContainerWidget implements ISizedBox{
   height?: number;
   unit: string;
   
-  constructor({child=null, width=undefined, height=undefined, unit="px"}: ISizedBox){
+  constructor({child=null, width=undefined, height=undefined, unit="px"}: ISizedBox={unit: "px"}){
     super({child: child??null});
     this.width = width;
     this.height = height;
