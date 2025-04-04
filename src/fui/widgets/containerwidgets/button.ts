@@ -30,7 +30,7 @@ export class Button extends ContainerWidget implements IButton{
   onClick: (e: any) => void;
   type?: string | undefined;
 
-  constructor({child=null, centeredItems=false, type, onClick=()=>{console.log("onClick not defined")}, color, weight, size, decoration = new BoxDecoration({width: "100%", border: 0, padding: EdgeInsets.zero})}: IButtonProps){
+  constructor({child=null, centeredItems=false, type, onClick=()=>{console.log("onClick not defined")}, color, weight, size, decoration = new BoxDecoration({width: "auto", border: 0, padding: EdgeInsets.zero})}: IButtonProps){
     super({child});
     this.centeredItems = centeredItems;
     this.type = type;

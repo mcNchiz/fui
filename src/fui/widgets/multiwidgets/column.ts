@@ -2,7 +2,7 @@ import { IWidget } from "../../widget";
 import { MultiWidget } from "../multiwidget";
 
 export type AlignItems = "start" | "end" | "center"
-export type JustifyContent = "start" | "end" | "center" | "spaced-between" | "evenly-spaced"
+export type JustifyContent = "start" | "end" | "center" | "space-between" | "evenly-spaced"
 export interface IChildren{
   children: (IWidget|null)[]
   gap?: number

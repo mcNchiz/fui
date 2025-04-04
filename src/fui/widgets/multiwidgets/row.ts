@@ -5,7 +5,7 @@ import { IChildren } from "./column";
 export class Row extends MultiWidget implements IChildren{
   gap?: number;
   alignItems?: "start" | "end" | "center" | undefined;
-  justifyContent?: "start" | "end" | "center" | "spaced-between" | "evenly-spaced" | undefined;
+  justifyContent?: "start" | "end" | "center" | "space-between" | "evenly-spaced" | undefined;
   constructor({children=[], gap=0, alignItems="center", justifyContent}: IChildren){
     super({children});
     this.gap = gap;
