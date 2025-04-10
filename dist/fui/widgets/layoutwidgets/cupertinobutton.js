@@ -16,6 +16,7 @@ class CupertinoDialogButton extends advancewidget_1.LayoutWidget {
         return new containerwidgets_1.Button({
             onClick: () => this.onClick(),
             decoration: new design_1.BoxDecoration({
+                width: "100%",
                 padding: design_1.EdgeInsets.symmetric(12, 20),
             }),
             child: new solewidgets_1.Text(this.label, new design_1.TextStyle({ color: design_1.Colors.blue, size: 18, alignment: "center" })),

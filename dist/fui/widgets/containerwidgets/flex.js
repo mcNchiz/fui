@@ -12,7 +12,7 @@ class Flex extends containerwidget_1.ContainerWidget {
         this.create();
     }
     widget() {
-        return this._renderer.createListContainer({ alignItems: this.alignItems, height: this.height, width: this.width, justifyContent: this.justifyContent, gap: 0, children: [] }, "column");
+        return this._renderer.createListContainer({ alignItems: this.alignItems, height: this.height, width: this.width, justifyContent: this.justifyContent, gap: 0, children: [] }, "row");
     }
 }
 exports.Flex = Flex;

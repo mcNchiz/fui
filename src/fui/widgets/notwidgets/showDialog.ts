@@ -1,9 +1,10 @@
 import { BoxDecoration, Colors, EdgeInsets, TextStyle } from "../../design"
+import { DialogContext } from "../../state"
 import { IWidget } from "../../widget"
-import { Button, Container, Flex, SizedBox } from "../containerwidgets"
-import { Padding } from "../layoutwidgets"
+import { Container, Flex, SizedBox } from "../containerwidgets"
+import { ListView, Padding } from "../layoutwidgets"
 import { CupertinoDialogButton } from "../layoutwidgets/cupertinobutton"
-import { Column, Row } from "../multiwidgets"
+import { Column } from "../multiwidgets"
 import { Line, Text } from "../solewidgets"
 
 export function showDialog(dialog: CupertinoDialog){
@@ -24,6 +25,7 @@ export class CupertinoDialog{
     this.body = body
   }
   show(){
+    DialogContext.push(this)
     this.widget = new Container({
       coords: {top: "0px"},
       decoration: new BoxDecoration({backgroundColor: "rgba(0,0,0,.5)", position: "fixed", width: "100%", height: "100%"}),
@@ -39,7 +41,7 @@ export class CupertinoDialog{
             children: [
               new SizedBox({height: 8}),
               new Padding({
-                padding: EdgeInsets.symmetric(8, 24),
+                padding: EdgeInsets.symmetric(16, 24),
                 child: new Column({
                   gap: 4,
                   alignItems: "center",
@@ -51,17 +53,23 @@ export class CupertinoDialog{
               }),
               new Line(),
               new Container({
-                decoration: new BoxDecoration({padding: EdgeInsets.all(16)}),
+                decoration: new BoxDecoration({padding: EdgeInsets.symmetric(24, 16)}),
                 child: this.body,
               }),
               new Line(),
-              new Row({
-                children: [
-                  new CupertinoDialogButton({label: "Okay", onClick: ()=>this.closeDialog()}),
-                  new Container({decoration: new BoxDecoration({backgroundColor: Colors.gray300, width: "0.8px", height: "40px"})}),
-                  new CupertinoDialogButton({label: "Close", onClick: ()=>this.closeDialog()}),
-                ],
-              }),
+              new Container({
+                child: new ListView({
+                  iterable: [...this.actions, new CupertinoDialogButton({label: "Close", onClick: ()=>this.closeDialog()})],
+                  builder: (button, index)=>{
+                    return new Column({
+                      children: [
+                        button,
+                        (this.actions.length!=index)?new Line():null
+                      ]
+                    })
+                  },
+                }),
+              })
             ],
           })
         })

@@ -7,10 +7,10 @@ import { Row } from "../multiwidgets/row";
 interface ListViewProps{
   iterable: any[]
   builder: (item: any, index: number)=>IWidget
-  gap: number
-  direction: "row"|"column"
-  alignItems: AlignItems
-  justifyContent: JustifyContent
+  gap?: number
+  direction?: "row"|"column"
+  alignItems?: AlignItems
+  justifyContent?: JustifyContent
 }
 
 export class ListView extends ModifiedWidget{
@@ -18,8 +18,8 @@ export class ListView extends ModifiedWidget{
   builder: (item: any, index: number)=>IWidget
   gap: number
   direction: "row"|"column"
-  alignItems: AlignItems
-  justifyContent: JustifyContent
+  alignItems?: AlignItems
+  justifyContent?: JustifyContent
 
   constructor({iterable, builder, direction="column", alignItems, justifyContent, gap=0}: ListViewProps){
     super();
@@ -54,7 +54,7 @@ export class ListView extends ModifiedWidget{
       });
     }
     this.linkWidgets(listView);
-    let component = this._renderer.defaultWidget();
+    let component = this._renderer.defaultWidget()
     return component;
   }
 }

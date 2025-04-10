@@ -16,6 +16,7 @@ export class CupertinoDialogButton extends LayoutWidget{
     return new Button({
       onClick: ()=>this.onClick(),
       decoration: new BoxDecoration({
+        width: "100%",
         padding: EdgeInsets.symmetric(12, 20),
       }),
       child: new Text(this.label, new TextStyle({color: Colors.blue, size: 18, alignment: "center"})),

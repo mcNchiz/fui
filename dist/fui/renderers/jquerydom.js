@@ -245,8 +245,15 @@ class JQueryDOM extends base_renderer_1.Renderer {
             var finalHeight = availableBottomHeight > availableTopHeight ? availableBottomHeight : availableTopHeight;
             $dropdownMenu.css({ "max-height": finalHeight + "px" });
             let menuBounds = $dropdownMenu.get(0).getBoundingClientRect();
+            console.log({
+                availableBottomHeight,
+                availableTopHeight,
+                bottomBound: bounds.bottom,
+                topBounds: bounds.top,
+                finalHeight
+            });
             const position = new design_1.Coordinates({
-                top: availableBottomHeight > availableTopHeight ? bounds.bottom + spacing : bounds.top - finalHeight - spacing,
+                top: availableBottomHeight > availableTopHeight ? bounds.bottom + spacing : bounds.top - menuBounds.height - spacing,
                 left: bounds.left - (winWidth < bounds.left + menuBounds.width + spacing ? menuBounds.width - bounds.width : 0)
             });
             $dropdownMenu.css(design_1.Coordinates.toCSS(position));

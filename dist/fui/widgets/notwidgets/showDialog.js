@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CupertinoDialog = void 0;
 exports.showDialog = showDialog;
 const design_1 = require("../../design");
+const state_1 = require("../../state");
 const containerwidgets_1 = require("../containerwidgets");
 const layoutwidgets_1 = require("../layoutwidgets");
 const cupertinobutton_1 = require("../layoutwidgets/cupertinobutton");
@@ -20,6 +21,7 @@ class CupertinoDialog {
     }
     show() {
         var _a;
+        state_1.DialogContext.push(this);
         this.widget = new containerwidgets_1.Container({
             coords: { top: "0px" },
             decoration: new design_1.BoxDecoration({ backgroundColor: "rgba(0,0,0,.5)", position: "fixed", width: "100%", height: "100%" }),
@@ -35,7 +37,7 @@ class CupertinoDialog {
                         children: [
                             new containerwidgets_1.SizedBox({ height: 8 }),
                             new layoutwidgets_1.Padding({
-                                padding: design_1.EdgeInsets.symmetric(8, 24),
+                                padding: design_1.EdgeInsets.symmetric(16, 24),
                                 child: new multiwidgets_1.Column({
                                     gap: 4,
                                     alignItems: "center",
@@ -47,17 +49,23 @@ class CupertinoDialog {
                             }),
                             new solewidgets_1.Line(),
                             new containerwidgets_1.Container({
-                                decoration: new design_1.BoxDecoration({ padding: design_1.EdgeInsets.all(16) }),
+                                decoration: new design_1.BoxDecoration({ padding: design_1.EdgeInsets.symmetric(24, 16) }),
                                 child: this.body,
                             }),
                             new solewidgets_1.Line(),
-                            new multiwidgets_1.Row({
-                                children: [
-                                    new cupertinobutton_1.CupertinoDialogButton({ label: "Okay", onClick: () => this.closeDialog() }),
-                                    new containerwidgets_1.Container({ decoration: new design_1.BoxDecoration({ backgroundColor: design_1.Colors.gray300, width: "0.8px", height: "40px" }) }),
-                                    new cupertinobutton_1.CupertinoDialogButton({ label: "Close", onClick: () => this.closeDialog() }),
-                                ],
-                            }),
+                            new containerwidgets_1.Container({
+                                child: new layoutwidgets_1.ListView({
+                                    iterable: [...this.actions, new cupertinobutton_1.CupertinoDialogButton({ label: "Close", onClick: () => this.closeDialog() })],
+                                    builder: (button, index) => {
+                                        return new multiwidgets_1.Column({
+                                            children: [
+                                                button,
+                                                (this.actions.length != index) ? new solewidgets_1.Line() : null
+                                            ]
+                                        });
+                                    },
+                                }),
+                            })
                         ],
                     })
                 })
